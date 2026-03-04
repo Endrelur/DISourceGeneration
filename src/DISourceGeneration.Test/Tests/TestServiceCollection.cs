@@ -3,4 +3,4 @@
 namespace DISourceGeneration.Test.Tests;
 
 [GeneratedServiceCollection]
-public static partial class TestServiceCollection;
+public sealed partial class TestServiceCollection;

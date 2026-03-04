@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/SolutionWide/">
+    <File Path="../.gitignore" />
+    <File Path="Directory.Build.Props" />
+    <File Path="Directory.Packages.Props" />
+  </Folder>
+  <Project Path="DiSourceGenerator/DiSourceGenerator.csproj" />
+</Solution>

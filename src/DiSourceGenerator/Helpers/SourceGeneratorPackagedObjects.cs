@@ -1,6 +1,6 @@
 ﻿namespace DiSourceGenerator.Helpers;
 
-internal static class SourceGeneratorPackaged
+internal static class SourceGeneratorPackagedObjects
 {
     internal static class Namespaces
     {

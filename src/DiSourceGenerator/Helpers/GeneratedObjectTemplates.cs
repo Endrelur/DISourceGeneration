@@ -6,7 +6,7 @@ internal static class GeneratedObjectTemplates
     {
         var actualNamespace = string.IsNullOrWhiteSpace(@namespace) ? string.Empty : $"namespace {@namespace};";
 
-    return $@"
+        return $@"
 using Microsoft.Extensions.DependencyInjection;
 
 {actualNamespace}
@@ -20,5 +20,5 @@ static partial class {name}
     }}
 }}
 ";
-}
     }
+}

@@ -6,19 +6,19 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     </PropertyGroup>
-    
+
     <!-- This ensures the library will be packaged as a source generator when we use `dotnet pack` -->
     <ItemGroup>
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
-              PackagePath="analyzers/dotnet/cs" Visible="false" />
+              PackagePath="analyzers/dotnet/cs" Visible="false"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
     </ItemGroup>
 
 </Project>

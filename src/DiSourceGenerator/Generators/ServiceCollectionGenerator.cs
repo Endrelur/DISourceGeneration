@@ -1,5 +1,6 @@
 ﻿using DiSourceGenerator.Helpers;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace DiSourceGenerator.Generators;
@@ -14,27 +15,32 @@ public class ServiceCollectionGenerator : IIncrementalGenerator
             .ForAttributeWithMetadataName(
                 SourceGeneratorPackagedObjects.Namespaces.AutoDiRegistrationAttributes + "." + SourceGeneratorPackagedObjects.ClassNames.GeneratedServiceCollectionAttribute,
                 // Only static partial classes
-                predicate: (node, _) => node is ClassDeclarationSyntax classDeclaration
-                                        && classDeclaration.Modifiers.Any(Microsoft.CodeAnalysis.CSharp.SyntaxKind.PartialKeyword)
-                                        && classDeclaration.Modifiers.Any(Microsoft.CodeAnalysis.CSharp.SyntaxKind.StaticKeyword),
-                transform: static (context, _) =>
+                (node, _) => NodeIsStaticPartialClass(node),
+                static (context, _) =>
                 {
                     // The symbol gives us easy access to the namespace and name
                     var symbol = (INamedTypeSymbol)context.TargetSymbol;
 
                     return new ClassModel(
-                        Name: symbol.Name,
-                        Namespace: symbol.ContainingNamespace.ToDisplayString()
+                        symbol.Name,
+                        symbol.ContainingNamespace.ToDisplayString()
                     );
                 });
-        
+
         context.RegisterSourceOutput(serviceCollectionsToGenerate, GenerateServiceCollections);
+    }
+
+    private static bool NodeIsStaticPartialClass(SyntaxNode node)
+    {
+        return node is ClassDeclarationSyntax classDeclaration
+               && classDeclaration.Modifiers.Any(SyntaxKind.StaticKeyword)
+               && classDeclaration.Modifiers.Any(SyntaxKind.PartialKeyword);
     }
 
     private static void GenerateServiceCollections(SourceProductionContext productionContext, ClassModel model)
     {
         var source = GeneratedObjectTemplates.GeneratedServiceCollection(model.Name, model.Namespace);
-        
+
         productionContext.AddSource($"{model.Name}.g.cs", source);
     }
 }

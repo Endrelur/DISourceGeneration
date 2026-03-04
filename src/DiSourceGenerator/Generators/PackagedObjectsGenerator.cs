@@ -1,0 +1,17 @@
+﻿using System.Text;
+using DiSourceGenerator.Helpers;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Text;
+
+namespace DiSourceGenerator.Generators;
+
+[Generator]
+public class PackagedObjectsGenerator : IIncrementalGenerator
+{
+    public void Initialize(IncrementalGeneratorInitializationContext context)
+    {
+        context.RegisterPostInitializationOutput(ctx => ctx.AddSource(
+            "IServiceInterface.g.cs",
+            SourceText.From(SourceGeneratorPackagedInterfaces.IGeneratedServiceCollection, Encoding.UTF8)));
+    }
+}

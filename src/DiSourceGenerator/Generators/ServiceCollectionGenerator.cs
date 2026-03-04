@@ -15,7 +15,7 @@ public class ServiceCollectionGenerator : IIncrementalGenerator
             .ForAttributeWithMetadataName(
                 SourceGeneratorPackagedObjects.Namespaces.AutoDiRegistrationAttributes + "." + SourceGeneratorPackagedObjects.ClassNames.GeneratedServiceCollectionAttribute,
                 // Only static partial classes
-                (node, _) => NodeIsStaticPartialClass(node),
+                (node, _) => NodeIsPartialClass(node),
                 static (context, _) =>
                 {
                     // The symbol gives us easy access to the namespace and name
@@ -30,12 +30,8 @@ public class ServiceCollectionGenerator : IIncrementalGenerator
         context.RegisterSourceOutput(serviceCollectionsToGenerate, GenerateServiceCollections);
     }
 
-    private static bool NodeIsStaticPartialClass(SyntaxNode node)
-    {
-        return node is ClassDeclarationSyntax classDeclaration
-               && classDeclaration.Modifiers.Any(SyntaxKind.StaticKeyword)
-               && classDeclaration.Modifiers.Any(SyntaxKind.PartialKeyword);
-    }
+    private static bool NodeIsPartialClass(SyntaxNode node) =>
+        node is ClassDeclarationSyntax classDeclaration && classDeclaration.Modifiers.Any(SyntaxKind.PartialKeyword);
 
     private static void GenerateServiceCollections(SourceProductionContext productionContext, ClassModel model)
     {

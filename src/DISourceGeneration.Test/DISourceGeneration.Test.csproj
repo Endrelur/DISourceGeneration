@@ -10,4 +10,8 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DiSourceGenerator\DiSourceGenerator.csproj"  OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+
 </Project>

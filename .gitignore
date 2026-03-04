@@ -1,0 +1,42 @@
+## Build outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]est[Rr]esults/
+
+## Visual Studio & JetBrains files
+.vs/
+.idea/
+*.user
+*.userosscache
+*.sln.docstates
+
+## User-specific and Local Settings
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+appsettings.Development.json
+appsettings.Local.json
+
+## Publish output
+[Pp]ublish/
+
+## NuGet Packages
+*.nupkg
+# The packages folder is usually omitted because they are restored via the csproj
+**/packages/*
+!**/packages/build/
+
+## Native profiling reports
+*.mdf
+*.ldf
+*.diag
+*.stackdump
+
+## Operating System files
+.DS_Store
+Thumbs.db
+
+## Docker
+.dockerignore

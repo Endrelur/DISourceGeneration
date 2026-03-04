@@ -4,5 +4,6 @@
     <File Path="Directory.Build.Props" />
     <File Path="Directory.Packages.Props" />
   </Folder>
+  <Project Path="DISourceGeneration.Test/DISourceGeneration.Test.csproj" />
   <Project Path="DiSourceGenerator/DiSourceGenerator.csproj" />
 </Solution>

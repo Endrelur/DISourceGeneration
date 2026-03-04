@@ -2,7 +2,7 @@
 
 internal static class GeneratedObjectTemplates
 {
-    public static string ServiceCollection(string name, string? @namespace)
+    public static string GeneratedServiceCollection(string name, string? @namespace)
     {
         var actualNamespace = string.IsNullOrWhiteSpace(@namespace) ? string.Empty : $"namespace {@namespace};";
 

@@ -1,4 +1,4 @@
-﻿namespace DiSourceGenerator.Helper;
+﻿namespace DiSourceGenerator.Helpers;
 
 internal static class SourceGeneratorPackagedInterfaces
 {
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 {SourceGeneratorPackagedNamespaces.AutoDiRegistrationAttributes};
 
-public interface IServiceModule
+public interface IGeneratedServiceCollection
 {{     
     public IServiceCollection AddServicesToServiceCollection(IServiceCollection serviceCollection);
 }} 

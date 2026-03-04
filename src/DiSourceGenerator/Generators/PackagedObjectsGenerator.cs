@@ -11,7 +11,7 @@ public class PackagedObjectsGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         context.RegisterPostInitializationOutput(ctx => ctx.AddSource(
-            "IServiceInterface.g.cs",
-            SourceText.From(SourceGeneratorPackagedInterfaces.IGeneratedServiceCollection, Encoding.UTF8)));
+            $"{SourceGeneratorPackaged.ClassNames.GeneratedServiceCollectionAttribute}.g.cs",
+            SourceText.From(SourceGeneratorPackaged.Attributes.GeneratedServiceCollectionAttribute, Encoding.UTF8)));
     }
 }

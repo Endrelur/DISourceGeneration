@@ -2,7 +2,7 @@
 
 internal static class SourceGeneratorPackagedInterfaces
 {
-    public const string IServiceInterface = $@"
+    public const string IGeneratedServiceCollection = $@"
 using Microsoft.Extensions.DependencyInjection;
 
 {SourceGeneratorPackagedNamespaces.AutoDiRegistrationAttributes};

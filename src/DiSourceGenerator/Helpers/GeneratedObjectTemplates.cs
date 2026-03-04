@@ -11,13 +11,18 @@ using Microsoft.Extensions.DependencyInjection;
 
 {actualNamespace}
 
-static partial class {name}
+partial class {name}
 {{
-    public static IServiceCollection Register{name}Services(this IServiceCollection services)
+    public IServiceCollection RegisterServices(IServiceCollection services)
     {{
         // Your generation logic for service registration goes here
         return services;
     }}
+}}
+
+public static class {name}Extensions
+{{
+    public static IServiceCollection Register{name}Services(this IServiceCollection services) => new {name}().RegisterServices(services);
 }}
 ";
     }

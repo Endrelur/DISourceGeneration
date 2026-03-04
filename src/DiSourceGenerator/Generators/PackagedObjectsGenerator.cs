@@ -22,7 +22,5 @@ public class PackagedObjectsGenerator : IIncrementalGenerator
     }
 
     private static void AddSourceWithNameAndTemplate(IncrementalGeneratorInitializationContext context, string className, string template) =>
-        context.RegisterPostInitializationOutput(ctx => ctx.AddSource(
-            $"{className}.g.cs",
-            SourceText.From(template, Encoding.UTF8)));
+        context.RegisterPostInitializationOutput(ctx => ctx.AddSource($"{className}.g.cs", SourceText.From(template, Encoding.UTF8)));
 }

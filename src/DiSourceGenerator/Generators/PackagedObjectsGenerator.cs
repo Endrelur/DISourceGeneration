@@ -10,14 +10,22 @@ public class PackagedObjectsGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
+        // GeneratedServiceCollectionAttribute
         AddSourceWithNameAndTemplate(context,
             SourceGeneratorPackagedObjects.ClassNames.GeneratedServiceCollectionAttribute,
             SourceGeneratorPackagedObjects.Attributes.GeneratedServiceCollectionAttribute
         );
 
+        // RegisterInAttribute
         AddSourceWithNameAndTemplate(context,
             SourceGeneratorPackagedObjects.ClassNames.RegisterInAttribute,
             SourceGeneratorPackagedObjects.Attributes.RegisterInAttribute
+        );
+
+        // DecoratorAttribute
+        AddSourceWithNameAndTemplate(context,
+            SourceGeneratorPackagedObjects.ClassNames.DecoratorAttribute,
+            SourceGeneratorPackagedObjects.Attributes.DecoratorAttribute
         );
     }
 

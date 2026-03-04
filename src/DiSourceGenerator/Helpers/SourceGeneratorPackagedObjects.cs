@@ -16,11 +16,23 @@ internal static class SourceGeneratorPackagedObjects
         public const string GeneratedServiceCollectionAttribute = "GeneratedServiceCollectionAttribute";
 
         public const string RegisterInAttribute = "RegisterInAttribute";
+
+        public const string DecoratorAttribute = "DecoratorAttribute";
     }
 
 
     internal static class Attributes
     {
+        public const string DecoratorAttribute = $@"
+using Microsoft.Extensions.DependencyInjection;
+using System;
+
+namespace {Namespaces.AutoDiRegistrationAttributes};
+
+[AttributeUsage(AttributeTargets.Class)]
+public class {ClassNames.DecoratorAttribute} : Attribute;
+";
+
         public const string RegisterInAttribute = $@"
 using Microsoft.Extensions.DependencyInjection;
 using System;
